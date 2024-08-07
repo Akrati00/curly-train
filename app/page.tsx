@@ -1,37 +1,45 @@
 import Link from "next/link"
-
-import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
+import Image from "next/image"
+import bgImage from "../../curly-train/public/bg.png"
 
 export default function IndexPage() {
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          <br className="hidden sm:inline" />
-          Stay up-to-date with the latest in Dota 2 esports. 
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-        Explore team stats, tournament schedules, live match updates, and in-depth analyses. Dive into a comprehensive and visually engaging experience that keeps you connected to the world of Dota 2.
-        </p>
+    <section className="relative h-screen w-screen overflow-hidden bg-gray-900 text-white">
+    
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src={bgImage}
+          alt="Background Image"
+          layout="fill"
+          objectFit="cover"
+          className="absolute inset-0"
+        />
       </div>
-      <div className="flex gap-4">
-        <Link
-          href="#"
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Login
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href="#"
-          className={buttonVariants({ variant: "outline" })}
-        >
-          Contact
-        </Link>
+
+    
+      <div className="relative z-10 flex size-full items-center justify-center p-3">
+        <div className="flex aspect-square w-[90%] max-w-[500px] flex-col items-start gap-6 rounded-lg bg-white/10 p-8 shadow-lg backdrop-blur-lg md:py-10">
+          <h1 className="font-rubik text-2xl font-medium leading-tight tracking-tighter text-white md:text-4xl">
+            Stay up-to-date with the latest in Dota 2 Esports.
+          </h1>
+          <p className="max-w-[700px] text-lg text-muted-foreground" style={{ fontFamily: 'Rubik, sans-serif' }}>
+            Explore team stats, tournament schedules, live match updates, and in-depth analyses. Dive into a comprehensive and visually engaging experience that keeps you connected to the world of Dota 2.
+          </p>
+          <div className="flex gap-4">
+            <Link href="#" target="_blank" rel="noreferrer" className={buttonVariants()}>
+              Login
+            </Link>
+            <Link
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({ variant: "outlineOnly" })}
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   )
